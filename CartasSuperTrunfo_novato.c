@@ -104,12 +104,12 @@ int main() {
     printf("\nCarta 2:\n");
     printf("Estado: %c\n", estado2);
     printf("Código: %s\n", codigo2);
-    printf("Cidade: %s\n", nome2);
+    printf("Nome da Cidade: %s\n", nome2);
     printf("População: %d\n", populacao2);
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", ptoturistico2);
-    media = populacao2 / area2;
+    media = (populacao2 / area2);
     printf("Densidade populacional: %.2f hab/km²\n", media);
     media = (pib2 * 1000000000) / populacao2;
     printf("PIB per Capita: %.2f reais\n", media);
