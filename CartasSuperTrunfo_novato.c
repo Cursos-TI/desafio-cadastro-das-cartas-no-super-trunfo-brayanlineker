@@ -33,6 +33,7 @@ int main() {
     float pibperc2;
     float denspop2;
 
+    int resultpop, resultarea, resultptotu, resultdens, resultpib, resultsuper, resultperc;
 
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -96,10 +97,10 @@ int main() {
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de Pontos Turísticos: %d\n", ptoturistico1);
-    media = populacao1 / area1;
-    printf("Densidade populacional: %.2f hab/km²\n", media);
-    media = (pib1 * 1000000000) / populacao1;
-    printf("PIB per Capita: %.2f reais\n", media);
+    denspop1 = populacao1 / area1;
+    printf("Densidade populacional: %.2f hab/km²\n", denspop1);
+    pibperc1 = (pib1 * 1000000000) / populacao1;
+    printf("PIB per Capita: %.2f reais\n", pibperc1);
 
     printf("\nCarta 2:\n");
     printf("Estado: %c\n", estado2);
@@ -109,10 +110,38 @@ int main() {
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", ptoturistico2);
-    media = (populacao2 / area2);
-    printf("Densidade populacional: %.2f hab/km²\n", media);
-    media = (pib2 * 1000000000) / populacao2;
-    printf("PIB per Capita: %.2f reais\n", media);
+
+    //Cálculo densidade e PIB per capita
+    denspop2 = populacao2 / area2;
+    printf("Densidade populacional: %.2f hab/km²\n", denspop2);
+    pibperc2 = (pib2 * 1000000000) / populacao2;
+    printf("PIB per Capita: %.2f reais\n", pibperc2);
+
+    float superpoder1 = populacao1 + area1 + pib1 + ptoturistico1 + pibperc1 + ( 1 / denspop1);
+    float superpoder2 = populacao2 + area2 + pib2 + ptoturistico2 + pibperc2 + ( 1 / denspop2);
+
+    //Comparação das cartas
+    printf("***Comparação das cartas***");
+    resultpop = populacao1 > populacao2;
+    resultarea = area1 > area2;
+    resultpib = pib1 > pib2;
+    resultptotu = ptoturistico1 > ptoturistico2;
+    resultdens = denspop1 < denspop2;
+    resultperc = pibperc1 > pibperc2;
+    resultsuper = superpoder1 > superpoder2;
+
+    //Impressão dos resultados
+    printf("\nComparação das cartas:\n\n");
+
+    printf("População: Carta %d venceu (%d)\n", 2 - resultpop, resultpop);
+    printf("Área: Carta %d venceu (%d)\n", 2 - resultarea, resultarea);
+    printf("PIB: Carta %d venceu (%d)\n", 2 - resultpib, resultpib);
+    printf("Pontos Turísticos: Carta %d venceu (%d)\n", 2 - resultptotu, resultptotu);
+    printf("Densidade Populacional: Carta %d venceu (%d)\n", 2 - resultdens, resultdens);
+    printf("PIB per Capita: Carta %d venceu (%d)\n,", 2 - resultperc, resultperc);
+    printf("Super poder: Carta %d venceu (%d)\n", 2 - resultsuper, resultsuper);
+
+
 
     return 0;
 }
